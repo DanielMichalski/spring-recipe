@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="datePrefixGenerator" class="pl.dmichalski.c01_09_collections_type.sequence.DatePrefixGenerator">
+        <property name="pattern" value="yyyyMMdd"/>
+    </bean>
+
+    <bean id="sequenceGenerator" class="pl.dmichalski.c01_09_collections_type.sequence.SequenceGenerator">
+        <property name="initial" value="100000"/>
+        <property name="suffixex">
+            <list>
+                <value>5</value>
+                <value>10</value>
+                <value>15</value>
+            </list>
+        </property>
+        <property name="prefixGenerator" ref="datePrefixGenerator"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="sequenceGenerator1" class="pl.dmichalski.c01_01_list.sequence.SequenceGenerator">
+        <property name="prefix" value="30"/>
+        <property name="suffixes">
+            <list>
+                <value>A</value>
+                <bean class="java.net.URL">
+                    <constructor-arg value="http"/>
+                    <constructor-arg value="www.apress.com"/>
+                    <constructor-arg value="/"/>
+                </bean>
+            </list>
+        </property>
+        <property name="initial" value="100000"/>
+    </bean>
+
+    <bean id="sequenceGenerator2" class="pl.dmichalski.c01_01_list.sequence.SequenceGenerator">
+        <constructor-arg value="30"/>
+        <constructor-arg type="java.util.List">
+            <list>
+                <value>A</value>
+                <bean class="java.net.URL">
+                    <constructor-arg value="http"/>
+                    <constructor-arg value="www.apress.com"/>
+                    <constructor-arg value="/"/>
+                </bean>
+            </list>
+        </constructor-arg>
+        <constructor-arg value="100000"/>
+    </bean>
+
+    <bean id="sequenceGenerator3" class="pl.dmichalski.c01_01_list.sequence.SequenceGenerator"
+          p:prefix="30"
+          p:suffixes-ref="suffixes"
+          p:initial="100000"/>
+
+    <util:list id="suffixes">
+        <value>A</value>
+        <bean class="java.net.URL">
+            <constructor-arg value="http"/>
+            <constructor-arg value="www.apress.com"/>
+            <constructor-arg value="/"/>
+        </bean>
+    </util:list>
+
+</beans>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="aaa1" class="pl.dmichalski.c01_07_contructors1.shop.Battery">
+        <property name="name" value="AAA"/>
+        <property name="price" value="2.5"/>
+        <property name="rechargeable" value="true"/>
+    </bean>
+
+    <bean id="aaa2" class="pl.dmichalski.c01_07_contructors1.shop.Battery">
+        <constructor-arg value="AAA"/>
+        <constructor-arg value="2.5"/>
+        <property name="rechargeable" value="true"/>
+    </bean>
+
+    <bean id="cdrw1" class="pl.dmichalski.c01_07_contructors1.shop.Disc">
+        <property name="name" value="CD-RW"/>
+        <property name="price" value="1.5"/>
+        <property name="capacity" value="700"/>
+    </bean>
+
+    <bean id="cdrw2" class="pl.dmichalski.c01_07_contructors1.shop.Disc">
+        <constructor-arg value="CD-RW"/>
+        <constructor-arg value="1.5"/>
+        <property name="capacity" value="700"/>
+    </bean>
+
+</beans>

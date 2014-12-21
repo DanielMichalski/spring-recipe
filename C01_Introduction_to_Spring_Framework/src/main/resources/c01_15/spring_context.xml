@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/context
+               http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <bean id="baseGenerator" abstract="true">
+        <property name="initial" value="100000"/>
+    </bean>
+
+    <bean id="baseSequenceGenerator" class="pl.dmichalski.c01_15_bean_inheritence.sequence.SequenceGenerator"
+          abstract="true" parent="baseGenerator">
+        <property name="suffix" value="A"/>
+        <property name="prefixGenerators" ref="datePrefixGenerator"/>
+    </bean>
+
+    <bean id="sequenceGenerator1" parent="baseSequenceGenerator">
+        <property name="initial" value="100000"/>
+    </bean>
+
+    <bean id="sequenceGenerator2" parent="baseSequenceGenerator">
+        <property name="initial" value="200000"/>
+    </bean>
+
+    <bean id="datePrefixGenerator" class="pl.dmichalski.c01_15_bean_inheritence.sequence.DatePrefixGenerator">
+        <property name="pattern" value="yyyyMMdd"/>
+    </bean>
+
+    <bean id="yearPrefixGenerator" class="pl.dmichalski.c01_15_bean_inheritence.sequence.DatePrefixGenerator">
+        <property name="pattern" value="yyyy"/>
+    </bean>
+
+</beans>
