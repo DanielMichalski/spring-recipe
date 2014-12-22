@@ -1,7 +1,5 @@
 package pl.dmichalski.c01_12_our_required_annotation.sequence;
 
-import org.springframework.beans.factory.annotation.Required;
-
 import java.util.List;
 
 /**

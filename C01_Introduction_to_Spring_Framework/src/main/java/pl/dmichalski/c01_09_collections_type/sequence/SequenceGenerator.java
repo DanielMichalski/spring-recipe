@@ -20,9 +20,9 @@ public class SequenceGenerator {
     public SequenceGenerator() {
     }
 
-    public SequenceGenerator(PrefixGenerator prefixGenerator, List<Integer> suffix, int initial) {
+    public SequenceGenerator(PrefixGenerator prefixGenerator, List<Integer> suffixes, int initial) {
         this.prefixGenerator = prefixGenerator;
-        this.suffixex = suffixex;
+        this.suffixex = suffixes;
         this.initial = initial;
     }
 

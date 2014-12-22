@@ -2,8 +2,6 @@ package pl.dmichalski.c01_13_autwired_wit_collections;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import pl.dmichalski.c01_13_autwired_wit_collections.sequence.SequenceGeneratorWithArray;
-import pl.dmichalski.c01_13_autwired_wit_collections.sequence.SequenceGeneratorWithList;
 import pl.dmichalski.c01_13_autwired_wit_collections.sequence.SequenceGeneratorWithMap;
 
 /**
