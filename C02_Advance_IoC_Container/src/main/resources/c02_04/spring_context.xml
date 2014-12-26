@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+              http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="productRanking" class="pl.dmichalski.c02_04_property_path_factory_bean.shop.ProductRanking">
+        <property name="bestSeller">
+            <bean class="pl.dmichalski.c02_04_property_path_factory_bean.shop.Disc">
+                <property name="name" value="CD-RW"/>
+                <property name="price" value="1.5"/>
+            </bean>
+        </property>
+    </bean>
+
+    <util:property-path id="bestSeller" path="productRanking.bestSeller"/>
+
+    <!-- OR -->
+
+    <!--<bean id="bestSeller" class="org.springframework.beans.factory.config.PropertyPathFactoryBean">
+        <property name="targetObject" ref="productRanking"/>
+        <property name="propertyPath" value="bestSeller"/>
+    </bean>-->
+
+</beans>

@@ -12,6 +12,7 @@
 
     <modules>
         <module>C01_Introduction_to_Spring_Framework</module>
+        <module>C02_Advance_IoC_Container</module>
     </modules>
 
     <properties>
