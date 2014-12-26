@@ -9,7 +9,7 @@
 
     <context:annotation-config/>
 
-    <bean id="spELExample" class="pl.dmichalski.c02_05_spring_expression_language.spel.SpELExample"/>
+    <bean id="spELExample" class="pl.dmichalski.c02_05_spring_expression_language.spel.SpELExample" scope=""/>
 
     <bean id="emailUtilities" class="pl.dmichalski.c02_05_spring_expression_language.spel.EmailUtilities">
         <property name="randomNumber" value="#{T(java.lang.Math).random() * 100.0}"/>
