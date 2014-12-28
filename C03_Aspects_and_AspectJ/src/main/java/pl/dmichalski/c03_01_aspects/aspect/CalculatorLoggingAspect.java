@@ -15,7 +15,7 @@ public class CalculatorLoggingAspect {
 
     private Log log = LogFactory.getLog(this.getClass());
 
-    @Pointcut("execution(* *.*(..))")
+    @Pointcut("execution(* pl.dmichalski.c03_01_aspects..*(..))")
     public void allMethods() {}
 
     @Before("allMethods()")
