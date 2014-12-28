@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+              http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <entry key="pl.dmichalski.c02_16_custom_properties_editor_2.shop.Product">
+                    <bean class="pl.dmichalski.c02_16_custom_properties_editor_2.shop.ProductEditor"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="productRanking" class="pl.dmichalski.c02_15_custom_properties_editor_1.shop.ProductRanking">
+        <property name="bestSeller" value="pl.dmichalski.c02_16_custom_properties_editor_2.shop.Disc,CD-RW,1.5"/>
+        <property name="fromDate" value="2007-09-01"/>
+        <property name="toDate" value="2007-09-30"/>
+    </bean>
+
+</beans>

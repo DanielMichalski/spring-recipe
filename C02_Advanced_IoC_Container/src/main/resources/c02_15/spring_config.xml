@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+              http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dateEditor" class="org.springframework.beans.propertyeditors.CustomDateEditor">
+        <constructor-arg>
+            <bean class="java.text.SimpleDateFormat">
+                <constructor-arg value="yyyy-MM-dd"/>
+            </bean>
+        </constructor-arg>
+        <constructor-arg value="true"/>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <entry key="java.util.Date" value-ref="dateEditor"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="productRanking" class="pl.dmichalski.c02_15_custom_properties_editor_1.shop.ProductRanking">
+        <property name="bestSeller">
+            <bean class="pl.dmichalski.c02_15_custom_properties_editor_1.shop.Disc">
+                <property name="name" value="CD-RW"/>
+                <property name="price" value="1.5"/>
+            </bean>
+        </property>
+        <property name="fromDate" value="2007-09-01"/>
+        <property name="toDate" value="2007-09-30"/>
+    </bean>
+
+</beans>

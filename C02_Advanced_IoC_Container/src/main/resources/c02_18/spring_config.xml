@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+              http://www.springframework.org/schema/beans/spring-beans.xsd
+              http://www.springframework.org/schema/context
+              http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <bean id="task" class="pl.dmichalski.c02_18_spring_executors.thread.DemonstrationRunnable"/>
+
+    <bean class="org.springframework.core.task.support.TaskExecutorAdapter">
+        <constructor-arg>
+            <bean class="java.util.concurrent.Executors" factory-method="newCachedThreadPool"/>
+        </constructor-arg>
+    </bean>
+
+    <bean class="org.springframework.core.task.SimpleAsyncTaskExecutor"
+          p:daemon="false"/>
+
+    <bean class="org.springframework.core.task.SyncTaskExecutor"/>
+
+    <bean id="springExecutor" class="pl.dmichalski.c02_18_spring_executors.thread.SpringExecutor"/>
+
+</beans>
