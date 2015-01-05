@@ -1,0 +1,20 @@
+package pl.dmichalski.c03_08_injecting_to_domain_objects.calculator;
+
+/**
+ * Author: Daniel
+ */
+public class ComplexFormatter {
+
+    private String pattern;
+
+    public void setPattern(String pattern) {
+        this.pattern = pattern;
+    }
+
+    public String format(Complex complex) {
+        return pattern
+                .replaceAll("a", Integer.toString(complex.getReal()))
+                .replaceAll("b", Integer.toString(complex.getImaginary()));
+    }
+
+}

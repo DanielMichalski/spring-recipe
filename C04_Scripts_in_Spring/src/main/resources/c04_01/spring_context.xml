@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/lang
+               http://www.springframework.org/schema/lang/spring-lang-3.0.xsd">
+
+    <lang:jruby id="interestCalculatorJRuby"
+                script-source="classpath:c04_01/scripts/SimpleInterestCalculator.rb"
+                script-interfaces="pl.dmichalski.c04_01_scripts.interest.InterestCalculator">
+        <lang:property name="rate" value="0.05"/>
+    </lang:jruby>
+
+    <lang:groovy id="interestCalculatorGroovy"
+                 script-source="classpath:c04_01/scripts/SimpleInterestCalculator.groovy">
+        <lang:property name="rate" value="0.05"/>
+    </lang:groovy>
+
+    <!--
+    <lang:bsh id="interestCalculatorBeanShell"
+              script-source="classpath:c04_01/scripts/SimpleInterestCalculator.bsh"
+              script-interfaces="pl.dmichalski.c04_01_scripts.interest.InterestCalculator">
+        <lang:property name="rate" value="0.05"/>
+    </lang:bsh>
+    -->
+
+</beans>

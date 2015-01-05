@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+              http://www.springframework.org/schema/beans/spring-beans.xsd
+              http://www.springframework.org/schema/context
+              http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:load-time-weaver/>
+
+    <context:annotation-config/>
+
+    <context:spring-configured/>
+
+    <context:component-scan base-package="pl.dmichalski.c03_08_injecting_to_domain_objects"/>
+
+    <bean id="complexFormatter" class="pl.dmichalski.c03_08_injecting_to_domain_objects.calculator.ComplexFormatter">
+        <property name="pattern" value="(a + bi)"/>
+    </bean>
+
+    <bean id="complex" class="pl.dmichalski.c03_08_injecting_to_domain_objects.calculator.Complex" scope="prototype"/>
+
+</beans>
