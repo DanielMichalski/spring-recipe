@@ -8,6 +8,7 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             /WEB-INF/spring/board-service.xml
+            /WEB-INF/spring/board-database.xml
             /WEB-INF/spring/board-security.xml
         </param-value>
     </context-param>

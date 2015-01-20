@@ -8,8 +8,8 @@
                     http://www.springframework.org/schema/security/spring-security.xsd">
 
     <http>
-        <intercept-url pattern="/messageList*" access="ROLE_USER,ROLE_GUEST"/>
-        <intercept-url pattern="/messagePost*" access="ROLE_USER"/>
+        <intercept-url pattern="/messageList*" access="ROLE_ADMIN,ROLE_USER,ROLE_GUEST"/>
+        <intercept-url pattern="/messagePost*" access="ROLE_ADMIN,ROLE_USER"/>
         <intercept-url pattern="/messageDelete" access="ROLE_ADMIN"/>
         <form-login login-page="/login" default-target-url="/messageList"
                     authentication-failure-url="/login?error=true"/>
@@ -18,12 +18,27 @@
         <remember-me/>
     </http>
 
+    <!-- One way-->
+    <!--
     <authentication-manager>
         <authentication-provider>
             <user-service>
                 <user name="admin" password="secret" authorities="ROLE_ADMIN,ROLE_USER"/>
                 <user name="user1" password="1111" authorities="ROLE_USER"/>
+                <user name="user2" password="2222" disabled="true" authorities="ROLE_USER"/>
             </user-service>
+        </authentication-provider>
+    </authentication-manager>
+    -->
+
+    <authentication-manager>
+        <authentication-provider>
+            <jdbc-user-service data-source-ref="dataSource"
+                               authorities-by-username-query="SELECT member.name, member_role.name FROM member
+                    JOIN member_x_member_role on member.id = member_x_member_role.members_id
+                    JOIN member_role on member_x_member_role.memberRoles_id = member_role.id
+                    WHERE member.name = ?"
+                               users-by-username-query="SELECT name,password,enabled FROM member WHERE name = ?"/>
         </authentication-provider>
     </authentication-manager>
 
