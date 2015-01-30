@@ -20,10 +20,12 @@
 
     <authentication-manager>
         <authentication-provider>
+            <password-encoder hash="md5"/>
             <user-service>
-                <user name="admin" password="secret" authorities="ROLE_ADMIN,ROLE_USER"/>
-                <user name="user1" password="1111" authorities="ROLE_USER"/>
-                <user name="user2" password="2222" disabled="true" authorities="ROLE_USER"/>
+                <!-- To generate MD5 hash you can use Jacksum -->
+                <user name="admin" password="5ebe2294ecd0e0f08eab7690d2a6ee69" authorities="ROLE_ADMIN,ROLE_USER"/>
+                <user name="user1" password="b59c67bf196a4758191e42f76670ceba" authorities="ROLE_USER"/>
+                <user name="user2" password="934b535800b1cba8f96a5d72f72f1611" disabled="true" authorities="ROLE_USER"/>
             </user-service>
         </authentication-provider>
     </authentication-manager>

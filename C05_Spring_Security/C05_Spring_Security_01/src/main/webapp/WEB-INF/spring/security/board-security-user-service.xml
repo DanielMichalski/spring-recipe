@@ -15,11 +15,8 @@
                     authentication-failure-url="/login?error=true"/>
         <logout logout-success-url="/login"/>
         <anonymous username="guest" granted-authority="ROLE_GUEST"/>
-        <remember-me/>
     </http>
 
-    <!-- One way-->
-    <!--
     <authentication-manager>
         <authentication-provider>
             <user-service>
@@ -29,17 +26,16 @@
             </user-service>
         </authentication-provider>
     </authentication-manager>
-    -->
 
-    <authentication-manager>
-        <authentication-provider>
-            <jdbc-user-service data-source-ref="dataSource"
-                               authorities-by-username-query="SELECT member.name, member_role.name FROM member
-                    JOIN member_x_member_role on member.id = member_x_member_role.members_id
-                    JOIN member_role on member_x_member_role.memberRoles_id = member_role.id
-                    WHERE member.name = ?"
-                               users-by-username-query="SELECT name,password,enabled FROM member WHERE name = ?"/>
-        </authentication-provider>
-    </authentication-manager>
+    <global-method-security access-decision-manager-ref="accessDecisionManager">
+        <protect-pointcut expression="execution(* pl.dmichalski.c05_01_spring_security.service.*Service.list*(..)"
+                          access="ROLE_USER, ROLE_GUEST"/>
+        <protect-pointcut expression="execution(* pl.dmichalski.c05_01_spring_security.service.*Service.post*(..)"
+                          access="ROLE_USER"/>
+        <protect-pointcut expression="execution(* pl.dmichalski.c05_01_spring_security.service.*Service.delete*(..)"
+                          access="ROLE_ADMIN"/>
+        <protect-pointcut expression="execution(* pl.dmichalski.c05_01_spring_security.service.*Service.find*(..)"
+                          access="ROLE_USER, ROLE_GUEST"/>
+    </global-method-security>
 
 </beans:beans>
