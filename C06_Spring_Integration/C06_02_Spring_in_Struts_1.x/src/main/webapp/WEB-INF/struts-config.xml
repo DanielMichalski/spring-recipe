@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+        "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <form-beans>
+        <form-bean name="distanceForm" type="pl.dmichalski.c06_03.form.DistanceForm"/>
+    </form-beans>
+
+    <action-mappings>
+        <action path="/distance"
+                type="pl.dmichalski.c06_03.action.DistanceAction"
+                name="distanceForm"
+                validate="false">
+            <forward name="success"
+                     path="/WEB-INF/jsp/distance.jsp"/>
+        </action>
+    </action-mappings>
+
+</struts-config>

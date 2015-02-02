@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-                version="3.1">
+         version="3.1">
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -13,13 +13,23 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
     <servlet>
         <servlet-name>distance</servlet-name>
-        <servlet-class>pl.dmichalski.c06_02.servlet.DistanceHttpRequestHandler</servlet-class>
+        <servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>distance</servlet-name>
         <url-pattern>/distance</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>cityServiceRequestFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>cityServiceRequestFilter</filter-name>
+        <servlet-name>distance</servlet-name>
+    </filter-mapping>
 
 </web-app>

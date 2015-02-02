@@ -21,4 +21,10 @@
         <property name="cityService" ref="cityService"/>
     </bean>
 
+    <bean id="cityServiceRequestAuditor" class="pl.dmichalski.c06_02.filter.CityServiceRequestAuditor"/>
+
+    <bean id="cityServiceRequestFilter" class="pl.dmichalski.c06_02.filter.CityServiceRequestFilter">
+        <property name="cityServiceRequestAuditor" ref="cityServiceRequestAuditor"/>
+    </bean>
+
 </beans>
