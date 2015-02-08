@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts-config PUBLIC
         "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
         "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
@@ -11,12 +11,15 @@
 
     <action-mappings>
         <action path="/distance"
-                type="pl.dmichalski.c06_03.action.DistanceAction"
                 name="distanceForm"
                 validate="false">
             <forward name="success"
                      path="/WEB-INF/jsp/distance.jsp"/>
         </action>
     </action-mappings>
+
+    <controller processorClass="org.springframework.web.struts.DelegatingRequestProcessor"/>
+
+    <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn"/>
 
 </struts-config>

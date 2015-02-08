@@ -4,6 +4,17 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="cityService" class="pl.dmichalski.c06_03.service.CityServiceImpl"/>
+    <bean id="cityService" class="pl.dmichalski.c06_03.service.CityServiceImpl">
+        <property name="distanceMap">
+            <map>
+                <entry key="New York">
+                    <map>
+                        <entry key="London" value="5574"/>
+                        <entry key="Beijing" value="10976"/>
+                    </map>
+                </entry>
+            </map>
+        </property>
+    </bean>
 
 </beans>

@@ -4,7 +4,7 @@
     <title>Home page</title>
 </head>
 <body>
-    <a href="${pageContext.request.contextPath}/distance.do">
+    <a href="distance.do">
         <h3>Go to distance page</h3>
     </a>
 </body>

@@ -1,5 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="html" uri="http://struts.apache.org/tags-html" %>
+<%@page language="java" %>
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <html>
 <head>
     <title>Distance between cities</title>
@@ -13,7 +13,7 @@
         </tr>
         <tr>
             <td>Destination city</td>
-            <td><html:text property="destCity"</td>
+            <td><html:text property="destCity"/></td>
         </tr>
         <tr>
             <td>Distance</td>
