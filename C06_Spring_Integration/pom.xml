@@ -14,8 +14,8 @@
 
     <modules>
         <module>C06_01_Spring_in_Servlets_1</module>
-        <module>C06_01_Spring_in_Servlets_2</module>
-        <module>C06_02_Spring_in_Struts_1.x</module>
+        <module>C06_02_Spring_in_Servlets_2</module>
+        <module>C06_03_Spring_in_Struts_1.x</module>
     </modules>
 
 </project>

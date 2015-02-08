@@ -9,7 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>C06_01_Spring_in_Servlets_2</artifactId>
-
+    <artifactId>C06_03_Spring_in_Struts_1.x</artifactId>
 
 </project>
