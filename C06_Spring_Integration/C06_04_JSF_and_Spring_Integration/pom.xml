@@ -9,14 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>C06_Spring_Integration</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>C06_01_Spring_in_Servlets_1</module>
-        <module>C06_02_Spring_in_Servlets_2</module>
-        <module>C06_03_Spring_in_Struts_1.x</module>
-        <module>C06_04_JSF_and_Spring_Integration</module>
-    </modules>
+    <artifactId>C06_04_JSF_and_Spring_Integration</artifactId>
 
 </project>
